@@ -14,11 +14,15 @@ fi
 dpkg -s rfkill  &> /dev/null
 
 if [ $? -eq 0 ]; then
-    echo -e "\n\nrfkill est installé. Coninuons.\n\n"
+    echo -e "\n\nrfkill est installé. Continuons.\n\n"
 else
     echo -e "\n\nrfkill n'est pas installé. Installons le !\n\n"
     apt install -y rfkill 
 fi
+
+
+# Nécessaire pour le presse papier
+export DISPLAY=:0
 
 
 # Identifier la carte réseau
@@ -37,6 +41,12 @@ FIRMWARE_MANQUANT=$(dmesg | grep firmware)
 #  verrouillage soft / hard 
 VERROUILLAGE=$(rfkill list)
 
+# IP BOX
+IP_BOX=$(ip r | grep default | cut -d " " -f 3)
+
+# PING BOX
+PING=$(ping $IP_BOX -c 3)
+echo $PING
 
 # VERSION KERNEL
 KERNEL=$(uname -a)
@@ -51,6 +61,10 @@ echo -e "Présence firmware (ip _a) : \n$PRESENCE_FIRMWARE \n\n" >> tmp.wifi.txt
 echo -e "Firmware manquant :  \n$FIRMWARE_MANQUANT \n\n" >> tmp.wifi.txt
 
 echo -e "Verrouillage soft / hard :  \n$VERROUILLAGE \n\n" >> tmp.wifi.txt
+
+echo -e "IPBox : \n$PING\n\n" >> tmp.wifi.txt
+
+echo -e "Ping vers la box : \n$PING\n\n" >> tmp.wifi.txt
 
 echo -e "Kernel : \n$KERNEL  \n\n" >> tmp.wifi.txt
 
