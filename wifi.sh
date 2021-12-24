@@ -46,7 +46,6 @@ IP_BOX=$(ip r | grep default | cut -d " " -f 3)
 
 # PING BOX
 PING=$(ping $IP_BOX -c 3)
-echo $PING
 
 # VERSION KERNEL
 KERNEL=$(uname -a)
