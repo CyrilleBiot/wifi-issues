@@ -59,6 +59,8 @@ PING=$(ping $IP_BOX -c 3)
 # VERSION KERNEL
 KERNEL=$(uname -a)
 
+# Liste des kernels installés
+KERNEL_INSTALLES=$(dpkg --list | grep linux-image | grep ii)
 
 echo -e "Carte réseau : \n $CARTE_RESEAU \n\n" > tmp.wifi.txt
 
@@ -75,6 +77,8 @@ echo -e "IPBox : \n$PING\n\n" >> tmp.wifi.txt
 echo -e "Ping vers la box : \n$PING\n\n" >> tmp.wifi.txt
 
 echo -e "Kernel : \n$KERNEL  \n\n" >> tmp.wifi.txt
+
+echo -e "Kernel(s) installé(s) : \n$KERNEL_INSTALLES  \n\n" >> tmp.wifi.txt
 
 # Affichage sur sortie standard
 cat tmp.wifi.txt
