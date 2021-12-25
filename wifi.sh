@@ -26,7 +26,7 @@ if [ $? -eq 0 ]; then
     echo -e "\n\nrfkill est installé. Continuons.\n\n"
 else
     echo -e "\n\nrfkill n'est pas installé. Installons le !\n\n"
-    apt install -y rfkill 
+    apt-get install -y rfkill 
 fi
 
 
