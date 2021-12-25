@@ -1,4 +1,13 @@
 #!/bin/bash
+#
+# cyrille <cyrille@cbiot.fr>
+# 
+# https://framagit.org/CyrilleBiot/wifi-issues
+# https://cbiot.fr/
+# 
+# Soucis aider au diagnostic de problèmes wifi
+#
+#
 
 # Test des droits admin
 if [ "$EUID" -ne 0 ]
