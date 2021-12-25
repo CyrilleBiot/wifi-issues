@@ -5,7 +5,7 @@
 # https://framagit.org/CyrilleBiot/wifi-issues
 # https://cbiot.fr/
 # 
-# Soucis aider au diagnostic de problèmes wifi
+# Script d'aide au diagnostic de problèmes wifi
 #
 #
 
@@ -23,18 +23,18 @@ fi
 dpkg -s rfkill  &> /dev/null
 
 if [ $? -eq 0 ]; then
-    echo -e "\n\nrfkill est installé. Continuons.\n\n"
+    echo -e "\nrfkill est installé. Continuons.\n"
 else
-    echo -e "\n\nrfkill n'est pas installé. Installons le !\n\n"
+    echo -e "\nrfkill n'est pas installé. Installons le !\n"
     apt-get install -y rfkill 
 fi
 
 dpkg -s xclip  &> /dev/null
 
 if [ $? -eq 0 ]; then
-    echo -e "\n\nxclip est installé. Continuons.\n\n"
+    echo -e "\nxclip est installé. Continuons.\n"
 else
-    echo -e "\n\nxclip n'est pas installé. Installons le !\n\n"
+    echo -e "\nxclip n'est pas installé. Installons le !\n"
     apt-get install -y xclip 
 fi
 
