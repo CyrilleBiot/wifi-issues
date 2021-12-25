@@ -29,6 +29,14 @@ else
     apt-get install -y rfkill 
 fi
 
+dpkg -s xclip  &> /dev/null
+
+if [ $? -eq 0 ]; then
+    echo -e "\n\nxclip est installé. Continuons.\n\n"
+else
+    echo -e "\n\nxclip n'est pas installé. Installons le !\n\n"
+    apt-get install -y xclip 
+fi
 
 # Nécessaire pour le presse papier
 export DISPLAY=:0
